@@ -1,0 +1,49 @@
+{
+  "$comment": "Messages and frame schemes the server suppresses. Mirrored locally so known noise never costs a request; never emit these exact strings for errors you want kept.",
+  "denyMessageSubstrings": [
+    "ResizeObserver loop limit exceeded",
+    "ResizeObserver loop completed with undelivered notifications",
+    "Script error.",
+    "Non-Error promise rejection captured",
+    "Non-Error exception captured"
+  ],
+  "nonAppFrameSchemes": [
+    "chrome-extension://",
+    "moz-extension://",
+    "safari-extension://",
+    "safari-web-extension://",
+    "chrome://",
+    "about:"
+  ],
+  "browserNoisePatterns": [
+    "/^Script error\\.?$/",
+    "/^ResizeObserver loop/",
+    "/^Cannot redefine property: googletag$/",
+    "/^Can't find variable: gmo$/",
+    "/^undefined is not an object \\(evaluating 'a\\.[A-Z]'\\)$/",
+    "/^vv\\(\\)\\.getRestrictions is not a function$/",
+    "/_AutofillCallbackHandler/",
+    "/^Object Not Found Matching Id:\\d+/",
+    "/^Java exception was raised during method invocation$/",
+    "/Cannot redefine property: (?:ethereum|solana)/",
+    "/^Non-Error promise rejection captured with value: Object Not Found Matching Id/",
+    "/^Blocked a frame with origin/",
+    "/^Loading (?:CSS )?chunk \\d+ failed/"
+  ],
+  "crawlerUserAgents": [
+    "Googlebot",
+    "Bingbot",
+    "AhrefsBot",
+    "SemrushBot",
+    "YandexBot",
+    "DuckDuckBot",
+    "Baiduspider",
+    "facebookexternalhit",
+    "Twitterbot",
+    "Applebot",
+    "PetalBot",
+    "HeadlessChrome",
+    "PhantomJS",
+    "Lighthouse"
+  ]
+}
