@@ -1,9 +1,9 @@
 # browser-noise
 
-Error messages that browsers produce on their own, which no error tracker should store, alert on
-or bill for. One JSON file, four lists, MIT.
+Error messages that browsers produce on their own, which rarely say anything about your code. One
+JSON file, four lists, MIT.
 
-The list is what [Vinktar](https://vinktar.com) ships in its browser SDK and applies on its
+The list is what [Vinktar](https://vinktar.com) uses to label likely noise in its SDKs and on its
 server, published on its own because every error tracker's users need the same list and nobody
 had written it down.
 
@@ -69,9 +69,10 @@ Sentry.init({
 The crawler list is for the server: drop the event when the request's `User-Agent` contains one
 of the substrings.
 
-**Vinktar** applies all four lists on the server before an error is stored or counted, with a
-switch per project for each of the browser-noise, extension and crawler sets, and the browser SDK
-mirrors the message lists so known noise never costs a request. Nothing to configure.
+**Vinktar** labels an error that matches any of the four lists as likely noise. It is kept and
+listed below the real errors, so a wrong match can still be found. Each set can be switched to
+auto-ignore per project, which drops it before it is stored or counted. The SDKs send these errors
+by default and drop them locally only with `ignoreKnownNoise`.
 
 ## Adding a pattern
 
